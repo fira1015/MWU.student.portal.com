@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Result Check</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f2f2f2;
+}
+h1 {
+  color: #333;
+  margin-top: 40px;
+}
+select, button {
+  padding: 10px;
+  margin: 10px;
+  font-size: 16px;
+}
+.container {
+  margin-top: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+.button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.button:hover {
+  background-color: #45a049;
+}
+.result {
+  margin-top: 20px;
+  text-align: left;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table, th, td {
+  border: 1px solid #ddd;
+}
+th, td {
+  padding: 10px;
+}
+</style>
+</head>
+<body>
+<h1>Course Result Check</h1>
+<div class="container">
+  <p>Select a semester and check your results:</p>
+  <select id="semester">
+    <option value="1">First Semester</option>
+    <option value="2">Second Semester</option>
+  </select>
+  <button class="button" onclick="checkResults()">Check Results</button>
+  <a href="UID.html"><button class="button">Back</button></a>
+  <div class="result" id="result"></div>
+</div>
+<script>
+function checkResults() {
+  const semester = document.getElementById('semester').value;
+  let courses;
+  
+  if (semester === '1') {
+    courses = ['Big Data Analytics - 80', 'Cybersecurity and Information Assurance - 85', 'Data Visualization and Interpretation - 90', 'Cloud Computing and Virtualization - 75', 'Digital Content Management - 80', 'Artificial Intelligence and Natural Language Processing - 85', 'Information Systems Analysis and Design - 90', 'Enterprise Information Architecture - 85', 'Health Informatics - 75', 'Business Intelligence and Decision Support - 80', 'Information Technology Project Management - 85'];
+  } else if (semester === '2') {
+    courses = ['Information Organization and Access - 80', 'Human-Computer Interaction - 85', 'Information Retrieval - 90', 'Data Mining and Machine Learning - 75', 'Social Media Analytics - 80', 'Database Management Systems - 85', 'Web Development and Design - 90', 'Information Ethics and Privacy - 85'];
+  }
+  
+  displayResults(courses);
+}
+
+function displayResults(courses) {
+  const resultDiv = document.getElementById('result');
+  
+  const table = document.createElement('table');
+  const headerRow = table.insertRow(0);
+  const header1 = headerRow.insertCell(0);
+  const header2 = headerRow.insertCell(1);
+  
+  header1.textContent = 'Course';
+  header2.textContent = 'Grade';
+  
+  courses.forEach(course => {
+    const data = course.split(' - ');
+    const row = table.insertRow(-1);
+    const cell1 = row.insertCell(0);
+    const cell2 = row.insertCell(1);
+    
+    cell1.textContent = data[0];
+    cell2.textContent = data[1];
+  });
+  
+  resultDiv.innerHTML = '';
+  resultDiv.appendChild(table);
+}
+</script>
+</body>
+</html>

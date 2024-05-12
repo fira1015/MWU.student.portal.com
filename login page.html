@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login Form</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #fcfcfc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 400px;
+}
+
+.logo {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  text-align: center;
+  color:black;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.input-group img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  max-height: 30px;
+}
+
+input {
+  padding: 12px 30px 12px 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.reset-button {
+  background-color: #dc3545;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <img src="download.jpg" alt="Logo" class="logo">
+  <h2>Login</h2>
+
+  <form action="#" onsubmit="return false">
+    <div class="input-group">
+      <img src="OIP.jpg" alt="User Icon">
+      <input type="text" id="username" name="username" placeholder="Username">
+    </div>
+
+    <div class="input-group">
+      <input type="password" id="password" name="password" placeholder="Password">
+    </div>
+  
+    <button onclick="loginUser()">Login</button><br>
+    <button onclick="window.location.href='valig.html'">Create New Account</button><br>
+    <button type="Reset" class="reset-button" onclick="window.location.href='reset.html'">Reset</button>
+  </form>
+</div>
+
+<script>
+function loginUser() {
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+
+  if (username === "fira" && password === "12345") {
+    alert("Login successful! Welcome, " + username + ".");
+    window.location.href = "UID.html";
+    // Redirect to the homepage or another page after successful login
+  
+  } else {
+    alert("Invalid username or password. Please try again.");
+  }
+}
+</script>
+</body>
+</html>

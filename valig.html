@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create An Account</title>
+  <style>
+    .form-container {
+      width: 50%;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f0f0f0; /* Adding background color */
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: calc(100% - 12px);
+      margin-bottom: 10px;
+      padding: 5px;
+      font-size: 14px;
+    }
+
+    input[type="submit"],
+    input[type="button"] {
+      padding: 10px;
+      background-color: #1E90FF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover,
+    input[type="button"]:hover {
+      background-color: #0077B6;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Create An Account</h2>
+    <form  method="POST" onsubmit="if (validateForm()) { redirectToSuccessPage(); return false; }">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username"required>
+
+      <label for="fname">First Name:</label>
+      <input type="text" id="fname" name="firstname"required>
+
+      <label for="lname">Last Name:</label>
+      <input type="text" id="lname" name="lastname">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password"required>
+
+      <label for="image">Profile Image:</label>
+      <input type="file" id="image" name="image">
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone">
+
+      <label for="address">Select a City:</label>
+      <select id="city" name="city" required>
+        <option value="">Select a city</option>  
+        <option value="Adama">Adama</option>
+<option value="Addis Ababa">Addis Ababa</option>
+<option value="Adigrat">Adigrat</option>
+<option value="Arba Minch">Arba Minch</option>
+<option value="Asaita">Asaita</option>
+<option value="Asosa">Asosa</option>
+<option value="Assela">Assela</option>
+<option value="Axum">Axum</option>
+<option value="Bahir Dar">Bahir Dar</option>
+<option value="Bale Robe">Bale Robe</option>
+<option value="Bishoftu">Bishoftu</option>
+<option value="Debre Birhan">Debre Birhan</option>
+<option value="Debre Markos">Debre Markos</option>
+<option value="Debre Tabor">Debre Tabor</option>
+<option value="Dembi Dolo">Dembi Dolo</option>
+<option value="Dessie">Dessie</option>
+<option value="Dire Dawa">Dire Dawa</option>
+<option value="Dilla">Dilla</option>
+<option value="Fiche">Fiche</option>
+<option value="Goba">Goba</option>
+<option value="Gode">Gode</option>
+<option value="Gondar">Gondar</option>
+<option value="Hawassa">Hawassa</option>
+<option value="Harar">Harar</option>
+<option value="Jijiga">Jijiga</option>
+<option value="Jimma">Jimma</option>
+<option value="Jinka">Jinka</option>
+<option value="Lalibela">Lalibela</option>
+<option value="Mekelle">Mekelle</option>
+<option value="Metu">Metu</option>
+<option value="Mendi">Mendi</option>
+<option value="Mojo">Mojo</option>
+<option value="Nekemte">Nekemte</option>
+<option value="Negele">Negele</option>
+<option value="Robe">Robe</option>
+<option value="Shashamane">Shashamane</option>
+<option value="Shire">Shire</option>
+<option value="Gambela">Gambela</option>
+<option value="Azezo">Azezo</option>
+        <!-- Include all other city options similar to the above -->
+      </select>
+      <input type="submit" id="createAccountBtn" value="Create Account">
+      <input type="button" id="cancelBtn" value="Cancel">
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('createAccountBtn').addEventListener('click', function() {
+      location.href = "UID.html";
+    });
+
+    document.getElementById('cancelBtn').addEventListener('click', function() {
+      location.href = "login page.html";
+    });
+  </script>
+</body>
+</html>

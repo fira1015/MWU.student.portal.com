@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login Form</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #fcfcfc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 400px;
+}
+
+.logo {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  text-align: center;
+  color:black;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.input-group img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  max-height: 30px;
+}
+
+input {
+  padding: 12px 30px 12px 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.reset-button {
+  background-color: #dc3545;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <img src="download.jpg" alt="Logo" class="logo">
+  <h2>Login</h2>
+
+  <form action="#" onsubmit="return false">
+    <div class="input-group">
+      <img src="OIP.jpg" alt="User Icon">
+      <input type="text" id="name" name="name" placeholder="Name">
+    </div>
+
+    <div class="input-group">
+      <img src="email.jpg" alt="Email Icon">
+      <input type="email" id="email" name="email" placeholder="Email">
+    </div>
+
+    <button type="button" onclick="sendVerificationCode()">Send Verification Code</button><br>
+    
+    <div id="verification-section" style="display: none;">
+      <div class="input-group">
+        <img src="k2.jpgg"   >
+        <input type="text" id="verificationCode" placeholder="Enter Verification Code">
+      </div>
+      <button onclick="verifyCode()">Verify Code</button><br>
+    </div>
+  </form>
+</div>
+
+<script>
+var generatedCode;
+
+function sendVerificationCode() {
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+
+  // Generate a random verification code
+  generatedCode = Math.floor(1000 + Math.random() * 9000);
+
+  // Display verification code input field
+  document.getElementById("verification-section").style.display = "block";
+
+  // You can implement code here to send the verification code to the provided email
+  alert("Verification code has been sent to " + email + ". Code: " + generatedCode);
+}
+
+function verifyCode() {
+  var enteredCode = document.getElementById("verificationCode").value;
+  
+  if (enteredCode === generatedCode.toString()) {
+    alert("Verification successful! Welcome, " + document.getElementById("name").value + ".");
+    window.location.href = "UID.html";
+  } else {
+    alert("Incorrect verification code. Please try again.");
+  }
+}
+</script>
+</body>
+</html>

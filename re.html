@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create An Account</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('a.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 150vh;
+    }
+    form {
+      width: 350px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="file"],
+    input[type="submit"],
+    input[type="radio"],
+    input[type="checkbox"],
+    select {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    input[type="submit"] {
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+    .logo {
+  text-align: center;
+  margin-top: 50px; /* Adjust the margin-top as needed */
+}
+
+.logo img {
+  display: block;
+  margin: 0 auto;
+  width: 500;
+}
+
+.logo h1 {
+  margin-top: 10px; 
+  color: white;
+}
+  </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="download.jpg" alt="Madda Walabu University Logo">
+      <H1>MADDA WALABU UNIVERSITY</H1> 
+      </div>
+  <div class="container">
+    <form method="GET" id="accountForm">
+      <h2>Create An Account</h2>
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" name="username" required><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br>
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password" required><br>
+      <label for="semester">Select Semester:</label><br>
+      <select id="semester" name="semester">
+        <option value="1">Semester 1</option>
+        <option value="2">Semester 2</option>
+      </select><br>  
+      <h3>Add Course:</h3>
+      <input type="checkbox" id="addCheckbox" onchange="toggleAddCourse()"> Add Course
+      <select id="addCourseList" name="addCourseList" class="hidden">
+        <option value="ISTF">Information Science and Technology Fundamentals</option>
+        <option value="IOA">Information Organization and Access</option>
+        <option value="HCI">Human-Computer Interaction</option>
+        <option value="IR">Information Retrieval</option>
+        <option value="DMML">Data Mining and Machine Learning</option>
+        <option value="SMA">Social Media Analytics</option>
+        <option value="DBMS">Database Management Systems</option>
+        <option value="WDAD">Web Development and Design</option>
+        <option value="IEP">Information Ethics and Privacy</option>
+        <option value="ITPM">Information Technology Project Management</option>
+      </select><br>
+      
+      <h3>Drop Course:</h3>
+      <input type="checkbox" id="dropCheckbox" onchange="toggleDropCourse()"> Drop Course
+      <select id="dropCourseList" name="dropCourseList" class="hidden">
+        <option value="ISTF">Information Science and Technology Fundamentals</option>
+        <option value="IOA">Information Organization and Access</option>
+        <option value="HCI">Human-Computer Interaction</option>
+        <option value="IR">Information Retrieval</option>
+        <option value="DMML">Data Mining and Machine Learning</option>
+        <option value="SMA">Social Media Analytics</option>
+        <option value="DBMS">Database Management Systems</option>
+        <option value="WDAD">Web Development and Design</option>
+        <option value="IEP">Information Ethics and Privacy</option>
+        <option value="ITPM">Information Technology Project Management</option>
+      </select><br>
+
+      <label for="caffeine">Caffeine Account:</label><br>
+      <input type="checkbox" id="caffeine" name="caffeine_account" onchange="toggleAccountNumber()"> Caffeine
+
+      <label for="account_number" class="hidden" id="accountLabel">Account Number:</label><br>
+      <input type="text" id="account_number" name="account_number">
+      <input type="submit" id="submitBtn">
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("accountForm").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+      alert("Registered successful!");
+      window.location.href = "UID.html";
+    });
+
+    function toggleAccountNumber() {
+      var accountNumberInput = document.getElementById("account_number");
+      var caffeineCheckbox = document.getElementById("caffeine");
+
+      if (caffeineCheckbox.checked) {
+        accountNumberInput.disabled = false;
+      } else {
+        accountNumberInput.disabled = true;
+      }
+    }
+
+    function toggleAddCourse() {
+      var addCourseList = document.getElementById("addCourseList");
+      if (document.getElementById("addCheckbox").checked) {
+        addCourseList.classList.remove("hidden");
+      } else {
+        addCourseList.classList.add("hidden");
+      }
+    }
+
+    function toggleDropCourse() {
+      var dropCourseList = document.getElementById("dropCourseList");
+      if (document.getElementById("dropCheckbox").checked) {
+        dropCourseList.classList.remove("hidden");
+      } else {
+        dropCourseList.classList.add("hidden");
+      }
+    
+    }
+   
+  </script>
+
+</body>
+</html>
